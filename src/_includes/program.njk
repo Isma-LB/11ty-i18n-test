@@ -1,0 +1,29 @@
+{% extends "base.njk" %}
+{% block content %}
+<main>
+    <style>
+        .test-class{width:100%;}
+        .gallery{width:254px;}
+        .split{
+
+            display: flex;
+        }
+        .split > *{
+            width: 100%;
+            margin: 12px;
+        }
+    </style>
+    {% if programImg.alt %}
+        {% bannerImage programImg.src, programImg.alt, "100vw","test-class" %}
+        {% galleryImage programImg.src, programImg.alt, "15vw","gallery" %}
+    {% endif %}
+
+    <h1>{{title}}</h1>
+    <p>{{programText}}</p>
+    <div class="split">
+        <div> {{description | markdown | safe }} </div>
+        <div> {{itinerary | markdown | safe }} </div>
+    </div>
+</main>
+
+{% endblock content %}

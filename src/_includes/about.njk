@@ -1,0 +1,9 @@
+{% extends "base.njk" %}
+{% set title = about[locale].title%}
+{% set aboutUs = about[locale].aboutUs%}
+{% block content %}
+<main>
+    <h1>{{title}}</h1>
+    <p>{{aboutUs}}</p>
+</main>
+{% endblock content %}

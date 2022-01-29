@@ -1,0 +1,4 @@
+{
+  "layout": "program.njk",
+  "permalink": "/{{locale}}/programs/{{page.fileSlug}}/"
+}

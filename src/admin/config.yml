@@ -1,0 +1,52 @@
+# configurations
+backend:
+  name: git-gateway
+  branch: main
+
+local_backend: true
+
+media_folder: "src/assets/uploads" # Media files will be stored in the repo under static/images/uploads
+public_folder: "src/assets/uploads" # The src attribute for uploaded media will begin with /images/uploads
+
+i18n:
+  structure: multiple_folders
+  locales: [en, es, de]
+
+#collections
+collections:
+  - name: pages
+    label: Pages
+    i18n:
+      structure: single_file
+    files:
+      - name: "about"
+        label: "About Page"
+        file: "src/_data/about.json"
+        i18n: true
+        fields:
+          - { label: Title, name: title, widget: string, i18n: true }
+          - { label: About us text, name: aboutUs, widget: string, i18n: true }
+      - name: "home"
+        label: "Home page"
+        file: "src/_data/home.json"
+        i18n: true
+        fields:
+          - { label: Title, name: title, widget: string, i18n: true }
+          - { label: Home text, name: homeText, widget: string, i18n: true }
+  - name: programs
+    label: Programs
+    folder: src/programs
+    create: true
+    i18n: true
+    fields:
+      - { label: Title, name: title, widget: string, i18n: true }
+      - { label: Program text, name: programText, widget: string, i18n: true }
+      - label: Program Image
+        name: programImg
+        widget: object
+        i18n: true
+        fields:
+          - { label: Image, name: src, widget: image, i18n: duplicate, required: false }
+          - { label: Alt text, name: alt, widget: string, i18n: true, required: false }
+      - { label: Description, name: description, widget: markdown, i18n: true, required: false }
+      - { label: Itinerary, name: itinerary, widget: markdown, i18n: duplicate, required: false }
